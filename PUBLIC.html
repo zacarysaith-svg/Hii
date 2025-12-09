@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UC Purchasing - Public View</title>
+</head>
+<body>
+  <script>
+    // This file loads the cleaned uc_purchasing.html and writes it to the page.
+    (async function(){
+      try{
+        const src = 'https://raw.githubusercontent.com/Mrkhan44003/mrkhan44003/main/uc_purchasing.html';
+        const r = await fetch(src);
+        if(!r.ok) throw new Error('Could not fetch source: '+r.status);
+        const html = await r.text();
+        document.open();
+        document.write(html);
+        document.close();
+      }catch(e){
+        document.body.innerHTML = '<p style="color:red">Error loading public view: '+e.message+'</p>';
+        console.error(e);
+      }
+    })();
+  </script>
+</body>
+</html>
